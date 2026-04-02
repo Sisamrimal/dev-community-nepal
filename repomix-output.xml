@@ -1,0 +1,1862 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+AGENTS.md
+app/components/About.tsx
+app/components/CTA.tsx
+app/components/Footer.tsx
+app/components/Hero.tsx
+app/components/Navbar.tsx
+app/components/Objectives.tsx
+app/components/OurNationalEvent.tsx
+app/components/Partners.tsx
+app/components/Projects.tsx
+app/events/project-100-minds/page.tsx
+app/favicon.ico
+app/globals.css
+app/layout.tsx
+app/page.tsx
+CLAUDE.md
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.js
+postcss.config.mjs
+public/aida 1.jpg
+public/aida.jpg
+public/aidam.jpg
+public/award.jpg
+public/cfc.png
+public/claude code.jpg
+public/code fest.jpg
+public/cs-1.jpg
+public/cybersecuirity.jpg
+public/file.svg
+public/globe.svg
+public/ku.jpg
+public/lf.jpg
+public/lf.webp
+public/m1
+public/meet second.jpg
+public/meetup image.jpg
+public/meetup.jpg
+public/next.svg
+public/prateek.png
+public/project100.jpg
+public/resume.pdf
+public/s8.jpg
+public/session.jfif
+public/session.jpg
+public/social.jpg
+public/sushant.jpg
+public/Ultima-with-Chevron-Red-Logo-002.jpg
+public/ultima.jpg
+public/vercel.svg
+public/window.svg
+public/workshop.jpg
+README.md
+tailwind.config.js
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="app/components/Footer.tsx">
+// components/Footer.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { Heart, MapPin, Phone, Globe } from 'lucide-react'
+import Link from 'next/link'
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
+  const quickLinks = [
+    { name: 'About Us', href: '#about' },
+    { name: 'Events', href: '#event' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'Contact', href: '#contact' },
+  ]
+
+  const resources = [
+    { name: 'Learning Hub', href: '#learning' },
+    { name: 'Notes', href: '#notes' },
+    { name: 'Register', href: '#register' },
+    { name: 'Become Partner', href: '#partner' },
+    { name: 'Donate', href: '#donate' },
+  ]
+
+  const socialLinks = [
+    { name: 'LinkedIn', href: '#', icon: 'in', color: 'hover:text-blue-500' },
+    { name: 'Facebook', href: '#', icon: 'fb', color: 'hover:text-blue-600' },
+    { name: 'Instagram', href: '#', icon: 'ig', color: 'hover:text-pink-500' },
+    { name: 'YouTube', href: '#', icon: 'yt', color: 'hover:text-red-600' },
+  ]
+
+  const getSocialIcon = (icon: string) => {
+    switch(icon) {
+      case 'in':
+        return (
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.204 0 22.225 0z"/>
+          </svg>
+        )
+      case 'fb':
+        return (
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        )
+      case 'ig':
+        return (
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        )
+      case 'yt':
+        return (
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.376.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.376-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        )
+      default:
+        return null
+    }
+  }
+
+  return (
+    <footer className="relative bg-gradient-to-b from-black to-purple-900/20 border-t border-white/10">
+      {/* Background Decor */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute bottom-0 left-20 w-72 h-72 bg-red-600 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* Brand Section */}
+          <div>
+            <div className="text-2xl font-bold mb-4">
+              <span className="text-white">DEV</span>
+              <span className="text-red-600"> Community</span>
+              <span className="text-white"> Nepal</span>
+            </div>
+            <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+              Empowering Nepal's future developers through collaboration, learning, and innovation.
+            </p>
+            <div className="flex items-center gap-2 text-gray-400 text-sm">
+              <Heart size={14} className="text-red-500" />
+              <span>Building Nepal's tech ecosystem</span>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-red-500 text-sm transition-colors duration-300"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-4">Resources</h3>
+            <ul className="space-y-2">
+              {resources.map((resource) => (
+                <li key={resource.name}>
+                  <Link
+                    href={resource.href}
+                    className="text-gray-400 hover:text-red-500 text-sm transition-colors duration-300"
+                  >
+                    {resource.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-4">Get in Touch</h3>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3">
+                <MapPin size={16} className="text-red-500 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-400 text-sm">Kathmandu, Nepal</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone size={16} className="text-red-500 flex-shrink-0" />
+                <a href="tel:+9779800000000" className="text-gray-400 hover:text-red-500 text-sm transition-colors">
+                  +977 980-000-0000
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Globe size={16} className="text-red-500 flex-shrink-0" />
+                <span className="text-gray-400 text-sm">www.devcommunitynepal.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-white/10 my-8" />
+
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          {/* Social Links */}
+          <div className="flex gap-4">
+            {socialLinks.map((social) => (
+              <motion.a
+                key={social.name}
+                href={social.href}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className={`text-gray-400 ${social.color} transition-all duration-300`}
+                aria-label={social.name}
+              >
+                {getSocialIcon(social.icon)}
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center">
+            <p className="text-gray-500 text-xs">
+              © {currentYear} DEV Community Nepal. All rights reserved.
+            </p>
+            <p className="text-gray-600 text-xs mt-1">
+              Made with <Heart size={10} className="inline text-red-500" /> in Nepal
+            </p>
+          </div>
+
+          {/* Back to Top Button */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="text-gray-400 hover:text-red-500 text-sm transition-colors"
+          >
+            Back to Top ↑
+          </motion.button>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+export default Footer
+</file>
+
+<file path="app/components/OurNationalEvent.tsx">
+// components/NationalEvents.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+
+const NationalEvents = () => {
+  const events = [
+    {
+      id: 1,
+      title: 'Social Impact Event',
+      description: 'DEV Community Nepal not only tries to uplift the students pursuing technology, but also strives to create an impact on the society through various awareness programs, as our responsibility towards our nation.',
+      image: '/social.jpg',
+      tag: 'Social Impact'
+    },
+    {
+      id: 2,
+      title: 'CodeFest',
+      description: 'CodeFest will be conducted in all 7 provinces of Nepal. The students pursuing IT can participate in this competition. The competition will be conducted in 3 levels: local, provincial, and the national finale.',
+      image: '/code fest.jpg',
+      tag: 'Hackathon'
+    },
+    {
+      id: 3,
+      title: 'AIDA(Hackathon)',
+      description: 'Introducing AiDA – AI for People with Disability, in collaboration with Prateek. Build innovative solutions to empower differently-abled individuals.',
+      image: '/aidam.jpg',
+      tag: 'Tech Conclave'
+    }
+  ]
+
+  return (
+    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-black to-purple-900/20">
+      {/* Background Decor */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-40 left-20 w-72 h-72 bg-red-600 rounded-full blur-[100px]" />
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-purple-600 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            Our National Events
+          </h2>
+          <div className="w-20 h-1 bg-red-600 mx-auto" />
+        </motion.div>
+
+        {/* Events Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {events.map((event, index) => (
+            <motion.div
+              key={event.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                y: -8,
+                transition: { duration: 0.2 }
+              }}
+              className="group relative"
+            >
+              {/* Card Glow Effect on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-purple-600/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              {/* Main Card */}
+              <div className="relative bg-gradient-to-br from-white/5 to-white/10 rounded-xl overflow-hidden border border-white/10 group-hover:border-red-500/50 transition-all duration-300 h-full flex flex-col">
+                {/* Image Container */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="p-5 flex-grow flex flex-col">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors">
+                    {event.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {event.description}
+                  </p>
+                </div>
+
+                {/* Animated Border on Hover */}
+                <div className="absolute inset-0 rounded-xl pointer-events-none">
+                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute top-0 left-0 w-20 h-0.5 bg-gradient-to-r from-red-500 to-transparent rounded-tl-xl" />
+                    <div className="absolute top-0 right-0 w-20 h-0.5 bg-gradient-to-l from-red-500 to-transparent rounded-tr-xl" />
+                    <div className="absolute bottom-0 left-0 w-20 h-0.5 bg-gradient-to-r from-red-500 to-transparent rounded-bl-xl" />
+                    <div className="absolute bottom-0 right-0 w-20 h-0.5 bg-gradient-to-l from-red-500 to-transparent rounded-br-xl" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default NationalEvents
+</file>
+
+<file path="app/components/Partners.tsx">
+// components/Partners.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+
+const Partners = () => {
+  const partners = [
+    { id: 1, name: 'Ultima', logo: '/Ultima-with-Chevron-Red-Logo-002.jpg' },
+    { id: 2, name: 'CFC', logo: '/cfc.png' },
+    { id: 3, name: 'KU', logo: '/ku.jpg' },
+    { id: 4, name: 'Prateek', logo: '/prateek.png' },
+    { id: 5, name: 'Sindhi Association of Nepal', logo: '/lf.jpg' }
+  ]
+
+  return (
+    <section className="py-16 relative overflow-hidden bg-gradient-to-b from-black to-purple-900/20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-10"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            We have worked with
+          </h2>
+          <div className="w-20 h-1 bg-red-600 mx-auto" />
+        </motion.div>
+
+        {/* Logos Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16"
+        >
+          {partners.map((partner, index) => (
+            <motion.div
+              key={partner.id}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.1 }}
+              className="relative w-24 h-24 md:w-28 md:h-28 cursor-pointer"
+            >
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                fill
+                className="object-contain"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+export default Partners
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path="AGENTS.md">
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
+</file>
+
+<file path="app/components/About.tsx">
+// components/WhatWeDo.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
+
+const WhatWeDo = () => {
+  const activities = [
+    {
+      title: 'WORKSHOPS',
+      description: 'DEV Community Nepal organizes several personal and professional workshops throughout the calendar year. The workshops are intended to provide technical as well as market-related knowledge.',
+      color: 'from-red-500 to-red-600'
+    },
+    {
+      title: 'HACKATHON',
+      description: '"DevFest" is the hackathon competition organized by DEV Community Nepal. In the past we have conducted couple of hackathons successfully. It is one of the grand events of the year.',
+      color: 'from-red-500 to-red-600'
+    },
+    {
+      title: 'SOCIAL IMPACT',
+      description: 'DEV Community Nepal not only tries to uplift the students pursuing technology, but also strives to create an impact on the society through various awareness programs, as our responsibility towards our nation.',
+      color: 'from-red-500 to-red-600'
+    },
+    {
+      title: 'INTERNSHIP',
+      description: 'Exposure and Networking is one of the vital gain that any member associated with the organization can achieve. The partners of DEV Community Nepal provide an excellent opportunity of internship for our members.',
+      color: 'from-red-500 to-red-600'
+    }
+  ]
+
+  return (
+    <section className="py-20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black to-purple-900/10" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            WHAT WE DO ?
+          </h2>
+          <div className="w-24 h-1 bg-red-600 mx-auto" />
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {activities.map((activity, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                scale: 1.03,
+                transition: { duration: 0.2 }
+              }}
+              className="group relative bg-gradient-to-br from-white/5 to-white/10 rounded-xl p-6 border border-white/10 hover:border-red-500/50 transition-all duration-300 flex flex-col h-full min-h-[320px]"
+            >
+              {/* Hover Glow Effect */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${activity.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300`} />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Title */}
+                <h3 className="text-xl font-bold mb-4 text-white group-hover:text-red-400 transition-colors duration-300">
+                  {activity.title}
+                </h3>
+                
+                {/* Description - Fixed height with line clamping */}
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-sm mb-6 flex-grow line-clamp-5">
+                  {activity.description}
+                </p>
+                
+                {/* Learn More Button - Always at bottom */}
+                <motion.button
+                  whileHover={{ x: 5 }}
+                  className="flex items-center gap-2 text-red-500 hover:text-red-400 font-semibold text-sm transition-colors duration-300 mt-auto"
+                >
+                  Learn More <ArrowRight size={14} />
+                </motion.button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default WhatWeDo
+</file>
+
+<file path="app/components/CTA.tsx">
+// Alternative version with actual images
+// Place images in public folder as: sushant.jpg, manu.jpg, alice.jpg
+
+'use client'
+
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { Quote } from 'lucide-react'
+
+const Testimonials = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Sushant Rimal',
+      title: 'Founder, DEV Community Nepal',
+      quote: 'This community has transformed the tech landscape in Nepal. Watching young developers grow from beginners to industry professionals is the most rewarding experience. Our mission to create a collaborative learning environment has truly come to life.',
+      image: '/sushant.jpg',
+      gradient: 'from-red-500 to-orange-500'
+    },
+    {
+      id: 2,
+      name: 'Manu Arora',
+      title: 'Tech Innovator & Entrepreneur',
+      quote: 'What a fantastic community! I made incredible connections and learned so much from the workshops. The platform is so easy to use. Highly recommend it to anyone looking to grow in tech.',
+      image: '/manu.jpg',
+      gradient: 'from-purple-500 to-pink-500'
+    },
+    {
+      id: 3,
+      name: 'Alice Johnson',
+      title: 'Senior Software Engineer',
+      quote: 'DEV Community Nepal has completely transformed how I approach problems. It\'s like having a brilliant community that knows exactly what I need. The collaborative spirit here is unmatched.',
+      image: '/alice.jpg',
+      gradient: 'from-blue-500 to-cyan-500'
+    }
+  ]
+
+  return (
+    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-black to-purple-900/20">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-40 left-20 w-72 h-72 bg-red-600 rounded-full blur-[100px]" />
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-purple-600 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            What Our Wellwishers Say
+          </h2>
+          <div className="w-20 h-1 bg-red-600 mx-auto" />
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+              className="group relative cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              <div className="relative bg-gradient-to-br from-white/5 to-white/10 rounded-2xl overflow-hidden border border-white/10 group-hover:border-red-500/50 transition-all duration-300 h-full flex flex-col">
+                <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
+                  <Quote size={40} className="text-white" />
+                </div>
+
+                <div className="p-6 flex-grow flex flex-col">
+                  <p className="text-gray-300 text-sm leading-relaxed mb-6 italic z-10 relative">
+                    "{testimonial.quote}"
+                  </p>
+                  
+                  <div className="flex items-center gap-4 mt-auto">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-red-500/50 group-hover:border-red-500 transition-all duration-300">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-white font-semibold text-base group-hover:text-red-400 transition-colors">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-gray-400 text-xs">
+                        {testimonial.title}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute inset-0 rounded-2xl pointer-events-none">
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute top-0 left-0 w-20 h-0.5 bg-gradient-to-r from-red-500 to-transparent rounded-tl-2xl" />
+                    <div className="absolute top-0 right-0 w-20 h-0.5 bg-gradient-to-l from-red-500 to-transparent rounded-tr-2xl" />
+                    <div className="absolute bottom-0 left-0 w-20 h-0.5 bg-gradient-to-r from-red-500 to-transparent rounded-bl-2xl" />
+                    <div className="absolute bottom-0 right-0 w-20 h-0.5 bg-gradient-to-l from-red-500 to-transparent rounded-br-2xl" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Testimonials
+</file>
+
+<file path="app/components/Hero.tsx">
+'use client'
+
+import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import Image from 'next/image'
+
+const Hero = () => {
+  const roles = ['Partner', 'Supporter', 'Changemaker', 'Trainer', 'Maker']
+  const [currentRole, setCurrentRole] = useState(0)
+  const [displayText, setDisplayText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const fullText = roles[currentRole]
+      if (isDeleting) {
+        setDisplayText(fullText.substring(0, displayText.length - 1))
+        if (displayText === '') {
+          setIsDeleting(false)
+          setCurrentRole((prev) => (prev + 1) % roles.length)
+        }
+      } else {
+        setDisplayText(fullText.substring(0, displayText.length + 1))
+        if (displayText === fullText) {
+          setTimeout(() => setIsDeleting(true), 1500)
+        }
+      }
+    }
+    const timer = setTimeout(handleTyping, 100)
+    return () => clearTimeout(timer)
+  }, [displayText, isDeleting, currentRole])
+
+  return (
+    <section className="min-h-screen flex items-center relative overflow-hidden bg-black pt-16">
+      {/* Background Gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-black" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,0,0,0.1),transparent_50%)]" />
+      
+      <div className="w-full relative z-10 px-6 lg:px-0">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
+          
+          {/* Left Column - Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 w-full lg:w-1/2 lg:pl-16 xl:pl-24"
+          >
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-[1.1] text-white">
+              BECOME A
+              <br />
+              <span className="text-red-500">
+                {displayText}
+                <span className="animate-pulse ml-1 text-white">|</span>
+              </span>
+            </h1>
+            
+            {/* Paragraph exactly in 3 lines as per second image */}
+            <p className="text-base md:text-lg text-gray-300 mb-10 leading-relaxed max-w-md">
+              We are Open platform for the Learners to learn and trainers to transfer their learning to learners.
+              <br />
+              We are the group of Young people uniting all the IT students and professionals under the same roof
+              <br />
+              for the technological revolutions.
+            </p>
+            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-red-600 px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-red-700 transition shadow-[0_0_20px_rgba(255,0,0,0.3)] w-fit text-white"
+            >
+              Sponsor Us <ArrowRight size={20} />
+            </motion.button>
+          </motion.div>
+
+          {/* Right Column - Image positioned to the right edge */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="relative w-full lg:w-1/2"
+          >
+            <div className="relative w-full overflow-hidden rounded-l-[80px] shadow-2xl">
+              <Image
+                src="/s8.jpg"
+                alt="DEV Community Nepal"
+                width={1000}
+                height={700}
+                className="w-full h-[400px] lg:h-[550px] object-cover"
+                priority
+              />
+              {/* Dark overlay for better text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
+            </div>
+          </motion.div>
+        </div>
+        
+        
+        
+      </div>
+    </section>
+  )
+}
+
+export default Hero
+</file>
+
+<file path="app/components/Navbar.tsx">
+// components/Navbar.tsx
+'use client'
+
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const navItems = [
+    { name: 'CFC Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Event', href: '#event' },
+    { name: 'Notes', href: '#notes' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'Our Impact', href: '#our-impact' },
+    { name: 'Register', href: '#register' },
+    { name: 'Donate', href: '#donate' }
+  ]
+
+  return (
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-black/80 backdrop-blur-lg border-b border-white/10' : ''
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="text-2xl font-bold cursor-pointer"
+          >
+            <span className="text-white">DEV</span>
+            <span className="text-red-600">Community</span>
+            <span className="text-white">Nepal</span>
+          </motion.div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-6">
+            {navItems.map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                whileHover={{ scale: 1.05 }}
+                className="text-gray-300 hover:text-white transition-colors text-sm"
+              >
+                {item.name}
+              </motion.a>
+            ))}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="bg-red-600 px-5 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition"
+            >
+              Join Now
+            </motion.button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden"
+          >
+            {isOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden bg-black/90 backdrop-blur-lg rounded-lg mt-2 p-4"
+          >
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="block py-2 text-gray-300 hover:text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
+            <button className="w-full mt-2 bg-red-600 px-4 py-2 rounded-lg text-sm font-semibold">
+              Join Now
+            </button>
+          </motion.div>
+        )}
+      </div>
+    </motion.nav>
+  )
+}
+
+export default Navbar
+</file>
+
+<file path="app/components/Objectives.tsx">
+// components/CurrentEvent.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { ArrowRight, Globe, MapPin, Calendar, Clock } from 'lucide-react'
+import Link from 'next/link'
+
+const CurrentEvent = () => {
+  return (
+    <section className="py-16 relative overflow-hidden bg-gradient-to-b from-black to-purple-900/10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-1262px;
+">
+        {/* Section Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-10"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">
+            OUR CURRENT EVENT
+          </h2>
+          <div className="w-16 h-0.5 bg-red-600 mx-auto" />
+        </motion.div>
+
+        {/* Main Event Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-br from-white/5 to-white/10 rounded-xl border border-white/10 overflow-hidden"
+        >
+          <div className="grid lg:grid-cols-2 gap-0">
+            {/* Left Column - Image */}
+            <div className="relative group overflow-hidden">
+              <Link href="/events/project-100-minds">
+                <div className="relative h-[400px] lg:h-full min-h-[380px] cursor-pointer">
+                  {/* Blue Gradient Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900">
+                    {/* Pattern Overlay */}
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_50%)]" />
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2240%22 height=%2240%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cdefs%3E%3Cpattern id=%22grid%22 width=%2240%22 height=%2240%22 patternUnits=%22userSpaceOnUse%22%3E%3Cpath d=%22M 40 0 L 0 0 0 40%22 fill=%22none%22 stroke=%22rgba(255,255,255,0.05)%22 stroke-width=%220.5%22/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23grid)%22/%3E%3C/svg%3E')] opacity-30" />
+                  </div>
+                  
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-between p-6">
+                    {/* Top */}
+                    <div className="text-right">
+                      <div className="inline-block">
+                        <p className="text-white/70 text-xs mb-1">DEV</p>
+                        <div className="text-3xl font-bold text-white leading-tight">
+                          &lt;/&gt;
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Center Content */}
+                    <div className="text-center">
+                      <p className="text-white/70 text-xs mb-2">DEV Community Nepal</p>
+                      <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                        PROJECT<br />100 MINDS
+                      </h3>
+                      <div className="w-16 h-0.5 bg-red-500 mx-auto my-3" />
+                      <p className="text-white text-base font-semibold">Cohort I (2026)</p>
+                      <p className="text-white/70 text-xs">Bagmati Province Cohort</p>
+                    </div>
+                    
+                    {/* Bottom */}
+                    <div className="text-left">
+                      <p className="text-white/50 text-[10px]">DEV COMMUNITY NEPAL</p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* Right Column - Content */}
+            <div className="p-6 md:p-8">
+              {/* Header */}
+              <div className="mb-5">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
+                  DEV COMMUNITY NEPAL PROJECT<br />
+                  100 MINDS - GENERAL MEMBERSHIP RECRUITMENT
+                </h3>
+                <p className="text-red-500 font-semibold text-base">
+                  Project: 100 Minds | Cohort (2026)
+                </p>
+                <p className="text-gray-400 text-sm">
+                  Bagmati Province Cohort
+                </p>
+              </div>
+
+              {/* Description */}
+              <div className="space-y-3 mb-5">
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  <span className="text-red-500 font-semibold">Dev Community Nepal Recruitment 25/26 – Project 100 Minds General Membership is OPEN! | Recruitment</span>
+                </p>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Project 100 Minds Recruitment 25/26 – General Membership is OPEN! Are you passionate about technology, 
+                  innovation, and social impact? This is your chance to be part of a nationwide community.
+                </p>
+                <Link href="/events/project-100-minds">
+                  <button className="text-red-500 hover:text-red-400 font-semibold text-sm inline-flex items-center gap-1 transition-colors">
+                    Open... read more <ArrowRight size={14} />
+                  </button>
+                </Link>
+              </div>
+
+              {/* Event Details */}
+              <div className="flex flex-wrap gap-3 mb-6 text-xs">
+                <div className="flex items-center gap-1.5 text-gray-300">
+                  <Globe size={14} className="text-red-500" />
+                  <span>Online</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-gray-300">
+                  <MapPin size={14} className="text-red-500" />
+                  <span>national</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-gray-300">
+                  <Calendar size={14} className="text-red-500" />
+                  <span>January 28, 2026</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-gray-300">
+                  <Clock size={14} className="text-red-500" />
+                  <span>End: February 05, 2026</span>
+                </div>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex gap-3">
+                <Link href="/events/project-100-minds" className="flex-1">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-red-600 px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-red-700 transition shadow-[0_0_20px_rgba(255,0,0,0.2)]"
+                  >
+                    Register
+                  </motion.button>
+                </Link>
+                <Link href="/events/project-100-minds" className="flex-1">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full border border-white/20 px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-white/10 transition"
+                  >
+                    Sponsor
+                  </motion.button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+export default CurrentEvent
+</file>
+
+<file path="app/components/Projects.tsx">
+'use client'
+
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { ChevronLeft, ChevronRight, TrendingUp, Sparkles } from 'lucide-react'
+import Image from 'next/image'
+
+const CommunityProjects = () => {
+  const images = [
+    { src: '/aida.jpg', alt: 'AIDA Event - Community Workshop' },
+    { src: '/aida 1.jpg', alt: 'AIDA Workshop - Hands-on Learning' },
+    { src: '/award.jpg', alt: 'Award Ceremony - Recognizing Excellence' },
+    { src: '/cs-1.jpg', alt: 'Community Session - Knowledge Sharing' },
+    { src: '/meetup.jpg', alt: 'Meetup Event - Networking' },
+    { src: '/meet second.jpg', alt: 'Meetup Second - Community Gathering' },
+  ]
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+
+  const stats = [
+    { value: '150+', label: 'workshops' },
+    { value: '100+', label: 'collaborations' },
+    { value: '7+', label: 'meetups' },
+  ]
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 5000)
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
+    setIsAutoPlaying(false)
+    setTimeout(() => setIsAutoPlaying(true), 5000)
+  }
+
+  useEffect(() => {
+    if (!isAutoPlaying) return
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [isAutoPlaying, images.length])
+
+  return (
+    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-black to-purple-900/20">
+      {/* Background Decoration */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-600 rounded-full blur-[100px]" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-black-600 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-12"
+        >
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600/20 to-purple-600/20 rounded-full px-6 py-2 border border-white/10">
+            <Sparkles className="w-4 h-4 text-red-500" />
+            <span className="text-sm text-gray-300">Our Impact</span>
+          </div>
+        </motion.div>
+
+        {/* Main Two-Column Layout */}
+        <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-14">
+
+          {/* LEFT — Image Slider Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="w-full lg:w-[480px] flex-shrink-0"
+          >
+            <div
+              className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl w-full"
+              style={{ height: '540px' }}
+            >
+              {/* Sliding Images */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, scale: 1.08 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.55 }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={images[currentIndex].src}
+                    alt={images[currentIndex].alt}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Caption + dots */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                <p className="text-white text-sm font-semibold leading-snug">
+                  {images[currentIndex].alt}
+                </p>
+                <p className="text-gray-400 text-xs mt-1">
+                  Building Nepal's tech community, one event at a time
+                </p>
+                <div className="flex gap-2 mt-4">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setCurrentIndex(index)
+                        setIsAutoPlaying(false)
+                        setTimeout(() => setIsAutoPlaying(true), 5000)
+                      }}
+                      className={`transition-all duration-300 ${
+                        currentIndex === index
+                          ? 'w-6 h-2 bg-red-500 rounded-full'
+                          : 'w-2 h-2 bg-white/40 rounded-full hover:bg-white/70'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-red-600 rounded-full p-2.5 transition-all duration-300"
+              >
+                <ChevronLeft className="w-4 h-4 text-white" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-red-600 rounded-full p-2.5 transition-all duration-300"
+              >
+                <ChevronRight className="w-4 h-4 text-white" />
+              </button>
+            </div>
+          </motion.div>
+
+          {/* RIGHT — Title + Stat Rows */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="flex-1 flex flex-col justify-center"
+          >
+            {/* Heading */}
+            <div className="mb-10">
+              <h2 className="text-5xl md:text-6xl font-extrabold mb-5 leading-tight text-white">
+                We drop jaws!
+              </h2>
+              <p className="text-gray-400 text-base max-w-md leading-relaxed">
+                In January 2021, we powered our first community. Since then we've grown to
+              </p>
+            </div>
+
+            {/* Stat rows — red/black/white only, cascading width */}
+            <div className="flex flex-col gap-4">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.25 + index * 0.13 }}
+                  viewport={{ once: true }}
+                  whileHover={{ x: 6 }}
+                  className="flex items-center gap-5 bg-white/[0.04] border border-white/10 hover:border-red-600/50 hover:bg-white/[0.07] rounded-2xl px-6 py-5 transition-all duration-300 cursor-default"
+                  style={{
+                    width: index === 0 ? '100%' : index === 1 ? '87%' : '72%',
+                  }}
+                >
+                  {/* Red accent bar */}
+                  <div className="w-[3px] h-12 bg-red-600 rounded-full flex-shrink-0" />
+
+                  {/* Number */}
+                  <span className="text-red-500 font-black text-5xl md:text-6xl tracking-tight leading-none">
+                    {stat.value}
+                  </span>
+
+                  {/* Label */}
+                  <span className="text-gray-300 font-medium text-xl capitalize">
+                    {stat.label}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bottom Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-14 flex justify-center"
+        >
+          <div className="inline-flex items-center gap-3 bg-white/5 rounded-full px-8 py-4 border border-white/10 backdrop-blur-sm">
+            <TrendingUp className="w-5 h-5 text-red-500" />
+            <span className="text-gray-300 text-sm">
+              Join <span className="text-red-500 font-bold">5000+</span> developers in Nepal's fastest-growing tech community
+            </span>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+export default CommunityProjects
+</file>
+
+<file path="app/events/project-100-minds/page.tsx">
+// app/events/project-100-minds/page.tsx
+'use client'
+
+import { motion } from 'framer-motion'
+import { Calendar, MapPin, Users, Globe, Clock, ArrowRight, ChevronRight, Home } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+
+export default function Project100MindsPage() {
+  const locations = [
+    'FarWest', 'Kamahl', 'Dang', 'Butwal', 'Pokhara', 'Chitwan', 'Kathmandu', 'Kohli', 'Birgunj'
+  ]
+
+  return (
+    <>
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-purple-900/20 to-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition">
+              <Home size={16} /> Back to Home
+            </Link>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left Column - Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden border border-white/20">
+                <Image
+                  src="/project100.jpg"
+                  alt="Project 100 Minds"
+                  width={600}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              </div>
+            </motion.div>
+
+            {/* Right Column - Event Details */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-6"
+            >
+              <div>
+                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  DEV COMMUNITY NEPAL RECRUITMENT
+                </h1>
+                <p className="text-red-500 font-semibold text-xl">
+                  25/26 - GENERAL MEMBERSHIP
+                </p>
+              </div>
+
+              <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                <p className="text-gray-300 leading-relaxed mb-3">
+                  <span className="text-red-500 font-semibold">Project 100 Minds Recruitment 25/26 – General Membership is OPEN! | Recruitment</span>
+                </p>
+                <p className="text-gray-400 leading-relaxed">
+                  Project 100 Minds Recruitment 25/26 – General Membership is OPEN! Are you passionate about technology, 
+                  innovation, and social impact? This is your chance to be part of a nationwide community. 🎉
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 text-gray-300">
+                  <Globe size={18} className="text-red-500" />
+                  <span className="text-sm">Online</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <MapPin size={18} className="text-red-500" />
+                  <span className="text-sm">National</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <Calendar size={18} className="text-red-500" />
+                  <span className="text-sm">January 28, 2026</span>
+                </div>
+                <div className="flex items-center gap-3 text-gray-300">
+                  <Clock size={18} className="text-red-500" />
+                  <span className="text-sm">End: February 05, 2026</span>
+                </div>
+              </div>
+
+              <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {locations.map((location, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300 hover:bg-red-500/20 hover:text-red-400 transition-colors"
+                    >
+                      {location}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex gap-4 pt-4">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex-1 bg-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition shadow-[0_0_20px_rgba(255,0,0,0.2)]"
+                >
+                  Register Now
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex-1 border border-white/20 px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
+                >
+                  Sponsor Event
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project 100 Minds Details Section */}
+      <section className="py-20 relative">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-gradient-to-br from-red-600/10 to-purple-600/10 rounded-2xl p-8 md:p-10 border border-white/10"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">
+              𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀 𝗢𝗽𝗲𝗻 | 𝗣𝗿𝗼𝗷𝗲𝗰𝘁 𝟭𝟬𝟬 𝗠𝗶𝗻𝗱𝘀 – 𝗕𝗮𝗴𝗺𝗮𝘁𝗶 𝗣𝗿𝗼𝘃𝗶𝗻𝗰𝗲 (𝗖𝗼𝗵𝗼𝗿𝘁 𝗜, 𝟮𝟬𝟮𝟲)
+            </h2>
+            
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              Project 100 Minds, an initiative of DEV Community Nepal, is inviting applications for leadership positions 
+              in Bagmati Province for Cohort I (2026).
+            </p>
+            
+            <p className="text-gray-300 mb-4 font-semibold">
+              We are selecting dedicated and capable student leaders for the following roles:
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-3 mb-8">
+              <div className="flex items-center gap-2">
+                <ChevronRight size={16} className="text-red-500" />
+                <span className="text-gray-300">𝗣𝗿𝗼𝘃𝗶𝗻𝗰𝗲 𝗟𝗲𝗮𝗱</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ChevronRight size={16} className="text-red-500" />
+                <span className="text-gray-300">𝗣𝗿𝗼𝘃𝗶𝗻𝗰𝗲 𝗖𝗼-𝗟𝗲𝗮𝗱</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ChevronRight size={16} className="text-red-500" />
+                <span className="text-gray-300">𝗖𝗮𝗺𝗽𝘂𝘀 𝗔𝗺𝗯𝗮𝘀𝘀𝗮𝗱𝗼𝗿𝘀</span>
+              </div>
+            </div>
+            
+            <p className="text-gray-300 mb-4 font-semibold">
+              𝗧𝗵𝗶𝘀 𝗶𝘀 𝗮𝗻 𝗼𝗽𝗽𝗼𝗿𝘁𝘂𝗻𝗶𝘁𝘆 𝘁𝗼:
+            </p>
+            
+            <ul className="space-y-3 mb-8">
+              {[
+                'Lead and coordinate a province-level student initiative',
+                'Gain structured leadership and management experience',
+                'Represent Project 100 Minds at your campus',
+                'Work closely with a national student community',
+                'Contribute to skill development and technology awareness initiatives',
+                'Build long-term impact within your academic ecosystem'
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-2 text-gray-400">
+                  <ChevronRight size={14} className="text-red-500 mt-1 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            
+            <div className="flex flex-wrap gap-4">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                className="bg-red-600 px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2 hover:bg-red-700 transition"
+              >
+                Apply Now <ArrowRight size={18} />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                className="border border-white/20 px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2 hover:bg-white/10 transition"
+              >
+                Download Brochure
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
+  )
+}
+</file>
+
+<file path="CLAUDE.md">
+@AGENTS.md
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default nextConfig;
+</file>
+
+<file path="postcss.config.js">
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+</file>
+
+<file path="public/file.svg">
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+</file>
+
+<file path="public/globe.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/next.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+</file>
+
+<file path="public/vercel.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+</file>
+
+<file path="public/window.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="tailwind.config.js">
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+</file>
+
+<file path="app/globals.css">
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+  }
+
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+@layer utilities {
+  .glow {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+  }
+  
+  .glow-hover:hover {
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #fff 0%, #ff0000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+</file>
+
+<file path="app/layout.tsx">
+// app/layout.tsx
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import Navbar from './components/Navbar'
+// import Footer from './components/Footer'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'DEV Community Nepal',
+  description: 'Empowering Nepal\'s Future Developers',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-black text-white`}>
+        <Navbar />
+        <main>{children}</main>
+        {/* <Footer /> */}
+      </body>
+    </html>
+  )
+}
+</file>
+
+<file path="app/page.tsx">
+// app/page.tsx
+'use client'
+
+import Hero from './components/Hero'
+import About from './components/About'
+import Objectives from './components/Objectives'
+import Projects from './components/Projects'
+import Partners from './components/Partners'
+import CTA from './components/CTA'
+import OurNationalEvent from './components/OurNationalEvent'
+import Footer from './components/Footer'
+
+export default function Home() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <Objectives />
+      <Projects />
+      <OurNationalEvent />
+      <CTA />
+      <Partners />
+      <Footer />
+    </>
+  )
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "dev-community-nepal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "16.2.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.27",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.2",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5"
+  }
+}
+</file>
+
+</files>
