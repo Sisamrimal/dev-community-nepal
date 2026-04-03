@@ -5,8 +5,8 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import SectionWrapper  from './SectionWrapper'
-
+import Link from 'next/link'  // ← Change this: import Link from next/link, not from lucide-react
+import SectionWrapper from './SectionWrapper'
 
 const Hero = () => {
   const roles = ['PARTNER', 'SUPPORTER', 'CHANGEMAKER', 'TRAINER', 'MAKER']
@@ -37,7 +37,6 @@ const Hero = () => {
   }, [displayText, isDeleting, currentRole])
 
   return (
-        
     <section className="min-h-screen flex items-center relative overflow-hidden bg-black">
       {/* Clean subtle gradient - minimal purple */}
       <div className="absolute inset-0 bg-gradient-to-br from-red-600/5 via-transparent to-transparent" />
@@ -66,13 +65,12 @@ const Hero = () => {
               for the technological revolutions.
             </p>
             
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-red-600 px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2 hover:bg-red-700 transition-all shadow-lg"
-            >
-              Sponsor Us <ArrowRight size={18} />
-            </motion.button>
+            {/* Fixed button - Now using Next.js Link correctly */}
+            <Link href="/sponsor">
+              <button className="bg-red-600 px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2 hover:bg-red-700 transition-all shadow-lg cursor-pointer text-white">
+                Sponsor Us <ArrowRight size={18} />
+              </button>
+            </Link>
           </motion.div>
 
           {/* Right Column - Wider Image */}
@@ -98,7 +96,6 @@ const Hero = () => {
         </div>
       </div>
     </section>
-    
   )
 }
 

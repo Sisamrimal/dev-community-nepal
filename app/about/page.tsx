@@ -35,12 +35,12 @@ export default function AboutPage() {
   ]
 
   const milestones = [
-    { year: '2019', title: 'First Workshop', description: 'Organized our first community workshop with 50+ participants' },
-    { year: '2020', title: 'Online Learning', description: 'Launched virtual learning programs during pandemic' },
-    { year: '2021', title: 'First Hackathon', description: 'Successfully conducted CodeFest 2021 with 200+ participants' },
-    { year: '2022', title: 'Nationwide Reach', description: 'Expanded to 7 provinces with partner organizations' },
-    { year: '2023', title: '1000+ Members', description: 'Crossed 1000 active community members milestone' },
-    { year: '2024', title: 'Project 100 Minds', description: 'Launched flagship leadership development program' },
+    { year: '2021', title: 'First Workshop', description: 'Organized our first community workshop with 50+ participants' },
+    { year: '2022', title: 'Online Learning', description: 'Launched virtual learning programs during pandemic' },
+    { year: '2023', title: 'First Hackathon', description: 'Successfully conducted CodeFest 2021 with 200+ participants' },
+    { year: '2024', title: 'Nationwide Reach', description: 'Expanded to 7 provinces with partner organizations' },
+    { year: '2025', title: '1000+ Members', description: 'Crossed 1000 active community members milestone' },
+    { year: '2026', title: 'Project 100 Minds', description: 'Launched flagship leadership development program' },
   ]
 
   const team = [
@@ -48,7 +48,7 @@ export default function AboutPage() {
       name: 'Sushant Rimal',
       role: 'Founder & President',
       bio: 'Visionary leader passionate about transforming Nepal\'s tech ecosystem.',
-      image: '/project100.jpg'
+      image: '/sushant.jpg'
     },
     {
       name: 'Priya Karki',
@@ -57,10 +57,10 @@ export default function AboutPage() {
       image: '/aida.jpg'
     },
     {
-      name: 'Bikash Thapa',
+      name: 'Sisam Rimal',
       role: 'Technical Lead',
       bio: 'Full-stack developer leading technical workshops and hackathons.',
-      image: '/cs-1.jpg'
+      image: '/alice.jpg'
     },
     {
       name: 'Sujan Shrestha',
@@ -181,7 +181,7 @@ export default function AboutPage() {
               className="relative rounded-2xl overflow-hidden border border-white/20 shadow-[0_0_30px_rgba(255,0,0,0.2)]"
             >
               <Image
-                src="/meetup-image.jpg"
+                src="/meetup image.jpg"
                 alt="DEV Community Nepal Meetup"
                 width={600}
                 height={400}
