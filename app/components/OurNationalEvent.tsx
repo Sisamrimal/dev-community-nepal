@@ -4,6 +4,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
+
 const NationalEvents = () => {
   const events = [
     {
@@ -30,6 +31,7 @@ const NationalEvents = () => {
   ]
 
   return (
+    
     <section className="py-20 relative overflow-hidden bg-gradient-to-b from-black to-purple-900/20">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-20">
@@ -109,6 +111,7 @@ const NationalEvents = () => {
         </div>
       </div>
     </section>
+    
   )
 }
 

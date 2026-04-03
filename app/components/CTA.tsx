@@ -19,7 +19,7 @@ const Testimonials = () => {
     },
     {
       id: 2,
-      name: 'Manu Arora',
+      name: 'Jatin Bhusal',
       title: 'Tech Innovator & Entrepreneur',
       quote: 'What a fantastic community! I made incredible connections and learned so much from the workshops. The platform is so easy to use. Highly recommend it to anyone looking to grow in tech.',
       image: '/manu.jpg',
@@ -27,8 +27,8 @@ const Testimonials = () => {
     },
     {
       id: 3,
-      name: 'Alice Johnson',
-      title: 'Senior Software Engineer',
+      name: 'Sisam Rimal',
+      title: 'Software Engineer',
       quote: 'DEV Community Nepal has completely transformed how I approach problems. It\'s like having a brilliant community that knows exactly what I need. The collaborative spirit here is unmatched.',
       image: '/alice.jpg',
       gradient: 'from-blue-500 to-cyan-500'

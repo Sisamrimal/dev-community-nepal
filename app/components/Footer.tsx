@@ -2,7 +2,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, MapPin, Phone, Globe } from 'lucide-react'
+import { Heart, MapPin, Phone, Globe, Mail } from 'lucide-react'
 import Link from 'next/link'
 
 const Footer = () => {
@@ -11,24 +11,40 @@ const Footer = () => {
   const quickLinks = [
     { name: 'About Us', href: '#about' },
     { name: 'Events', href: '#event' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Our Impact', href: '#our-impact' },
+    { name: 'Register', href: '#register' },
   ]
 
   const resources = [
     { name: 'Learning Hub', href: '#learning' },
-    { name: 'Notes', href: '#notes' },
-    { name: 'Register', href: '#register' },
     { name: 'Become Partner', href: '#partner' },
-    { name: 'Donate', href: '#donate' },
   ]
 
   const socialLinks = [
-    { name: 'LinkedIn', href: '#', icon: 'in', color: 'hover:text-blue-500' },
-    { name: 'Facebook', href: '#', icon: 'fb', color: 'hover:text-blue-600' },
-    { name: 'Instagram', href: '#', icon: 'ig', color: 'hover:text-pink-500' },
-    { name: 'YouTube', href: '#', icon: 'yt', color: 'hover:text-red-600' },
+    { 
+      name: 'LinkedIn', 
+      href: 'https://linkedin.com/company/dev-community-nepal', 
+      icon: 'in', 
+      color: 'hover:text-blue-500' 
+    },
+    { 
+      name: 'Facebook', 
+      href: 'https://facebook.com/devcommunitynepal', 
+      icon: 'fb', 
+      color: 'hover:text-blue-600' 
+    },
+    { 
+      name: 'Instagram', 
+      href: 'https://instagram.com/devcommunitynepal', 
+      icon: 'ig', 
+      color: 'hover:text-pink-500' 
+    },
+    { 
+      name: 'YouTube', 
+      href: 'https://youtube.com/@devcommunitynepal', 
+      icon: 'yt', 
+      color: 'hover:text-red-600' 
+    },
   ]
 
   const getSocialIcon = (icon: string) => {
@@ -64,7 +80,6 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gradient-to-b from-black to-purple-900/20 border-t border-white/10">
-      {/* Background Decor */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute bottom-0 left-20 w-72 h-72 bg-red-600 rounded-full blur-[100px]" />
       </div>
@@ -131,6 +146,12 @@ const Footer = () => {
                 <span className="text-gray-400 text-sm">Kathmandu, Nepal</span>
               </div>
               <div className="flex items-center gap-3">
+                <Mail size={16} className="text-red-500 flex-shrink-0" />
+                <a href="mailto:info@devcommunitynepal.com" className="text-gray-400 hover:text-red-500 text-sm transition-colors">
+                  info@devcommunitynepal.com
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
                 <Phone size={16} className="text-red-500 flex-shrink-0" />
                 <a href="tel:+9779800000000" className="text-gray-400 hover:text-red-500 text-sm transition-colors">
                   +977 980-000-0000
@@ -155,6 +176,8 @@ const Footer = () => {
               <motion.a
                 key={social.name}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 className={`text-gray-400 ${social.color} transition-all duration-300`}
                 aria-label={social.name}
@@ -188,5 +211,4 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer
+export default Footer;

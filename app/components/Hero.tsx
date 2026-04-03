@@ -1,12 +1,15 @@
+// components/Hero.tsx
 'use client'
 
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import SectionWrapper  from './SectionWrapper'
+
 
 const Hero = () => {
-  const roles = ['Partner', 'Supporter', 'Changemaker', 'Trainer', 'Maker']
+  const roles = ['PARTNER', 'SUPPORTER', 'CHANGEMAKER', 'TRAINER', 'MAKER']
   const [currentRole, setCurrentRole] = useState(0)
   const [displayText, setDisplayText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
@@ -14,6 +17,7 @@ const Hero = () => {
   useEffect(() => {
     const handleTyping = () => {
       const fullText = roles[currentRole]
+      
       if (isDeleting) {
         setDisplayText(fullText.substring(0, displayText.length - 1))
         if (displayText === '') {
@@ -27,78 +31,74 @@ const Hero = () => {
         }
       }
     }
+
     const timer = setTimeout(handleTyping, 100)
     return () => clearTimeout(timer)
   }, [displayText, isDeleting, currentRole])
 
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden bg-black pt-16">
-      {/* Background Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,0,0,0.1),transparent_50%)]" />
+        
+    <section className="min-h-screen flex items-center relative overflow-hidden bg-black">
+      {/* Clean subtle gradient - minimal purple */}
+      <div className="absolute inset-0 bg-gradient-to-br from-red-600/5 via-transparent to-transparent" />
       
-      <div className="w-full relative z-10 px-6 lg:px-0">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
-          
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
           {/* Left Column - Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex-1 w-full lg:w-1/2 lg:pl-16 xl:pl-24"
+            transition={{ duration: 0.6 }}
+            className="flex-1"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-[1.1] text-white">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">
               BECOME A
               <br />
-              <span className="text-red-500">
+              <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
                 {displayText}
-                <span className="animate-pulse ml-1 text-white">|</span>
+                <span className="animate-pulse text-red-500">|</span>
               </span>
             </h1>
             
-            {/* Paragraph exactly in 3 lines as per second image */}
-            <p className="text-base md:text-lg text-gray-300 mb-10 leading-relaxed max-w-md">
-              We are Open platform for the Learners to learn and trainers to transfer their learning to learners.
-              <br />
-              We are the group of Young people uniting all the IT students and professionals under the same roof
-              <br />
+            <p className="text-base text-gray-300 mb-8 leading-relaxed max-w-lg">
+              We are Open platform for the Learners to learn and trainers to transfer their learning to learners. 
+              We are the group of Young people uniting all the IT students and professionals under the same roof 
               for the technological revolutions.
             </p>
             
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-red-600 px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-red-700 transition shadow-[0_0_20px_rgba(255,0,0,0.3)] w-fit text-white"
+              className="bg-red-600 px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2 hover:bg-red-700 transition-all shadow-lg"
             >
-              Sponsor Us <ArrowRight size={20} />
+              Sponsor Us <ArrowRight size={18} />
             </motion.button>
           </motion.div>
 
-          {/* Right Column - Image positioned to the right edge */}
+          {/* Right Column - Wider Image */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            className="relative w-full lg:w-1/2"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex-1 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full overflow-hidden rounded-l-[80px] shadow-2xl">
-              <Image
-                src="/s8.jpg"
-                alt="DEV Community Nepal"
-                width={1000}
-                height={700}
-                className="w-full h-[400px] lg:h-[550px] object-cover"
-                priority
-              />
-              {/* Dark overlay for better text contrast */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
+            <div className="relative w-full max-w-5xl">
+              <div className="relative aspect-[21/9] w-full">
+                <Image
+                  src="/s8.jpg"
+                  alt="DEV Community Nepal"
+                  fill
+                  className="object-cover rounded-lg"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                />
+              </div>
             </div>
           </motion.div>
         </div>
-        
-        
-        
       </div>
     </section>
+    
   )
 }
 
