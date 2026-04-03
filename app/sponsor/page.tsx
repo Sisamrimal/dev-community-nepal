@@ -3,7 +3,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Users, Award, Heart, Briefcase, Target, Sparkles, ArrowRight, CheckCircle, GraduationCap, Calendar, Trophy, Gift } from 'lucide-react'
+import { Mail, Phone, MapPin, Users, Award, Heart, Briefcase, Target, Sparkles, ArrowRight, GraduationCap, Calendar, Trophy, Gift } from 'lucide-react'
 import Image from 'next/image'
 
 export default function SponsorPage() {
@@ -96,7 +96,7 @@ export default function SponsorPage() {
       <div className="absolute bottom-20 -right-32 w-96 h-96 bg-purple-600/15 rounded-full blur-[120px]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-500/5 rounded-full blur-[120px]" />
       
-      {/* Grid pattern overlay - fixed SVG data URL */}
+      {/* Grid pattern overlay */}
       <div 
         className="absolute inset-0 opacity-30"
         style={{
@@ -158,10 +158,10 @@ export default function SponsorPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.1)] transition-all duration-300 text-center"
+                className="group bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(239,68,68,0.1)] transition-all duration-300 text-center"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/20 to-red-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <benefit.icon className="w-7 h-7 text-purple-500" />
+                <div className="w-14 h-14 bg-gradient-to-br from-red-600/20 to-purple-600/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <benefit.icon className="w-7 h-7 text-red-500" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
@@ -173,7 +173,7 @@ export default function SponsorPage() {
 
       {/* Impact Stories Section - Main Focus */}
       <section className="py-16 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-red-900/5 to-black" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -202,7 +202,7 @@ export default function SponsorPage() {
               >
                 <div className={`absolute inset-0 bg-gradient-to-r ${story.bgGradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 
-                <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-500/50 transition-all duration-300">
+                <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-red-500/50 transition-all duration-300">
                   <div className="flex items-start justify-between mb-4">
                     <div className={`w-14 h-14 bg-gradient-to-br ${story.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
                       <story.icon className="w-7 h-7 text-white" />
@@ -216,7 +216,7 @@ export default function SponsorPage() {
                   </div>
                   
                   <h3 className="text-xl font-bold text-white mb-2">{story.title}</h3>
-                  <p className="text-purple-300 text-sm mb-3">{story.description}</p>
+                  <p className="text-red-300 text-sm mb-3">{story.description}</p>
                   <p className="text-gray-400 text-sm leading-relaxed mb-4">
                     {story.impact}
                   </p>
@@ -230,7 +230,8 @@ export default function SponsorPage() {
                         />
                       </div>
                     </div>
-                    <button className="bg-gradient-to-r from-red-600 to-purple-600 px-4 py-2 rounded-lg text-sm font-semibold hover:from-red-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    {/* Red theme button */}
+                    <button className="bg-red-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-red-600/30 shadow-red-600/20">
                       Sponsor This
                     </button>
                   </div>
@@ -264,12 +265,19 @@ export default function SponsorPage() {
                 <motion.div
                   key={i}
                   whileHover={{ scale: 1.05 }}
-                  className="text-center p-4 bg-gradient-to-br from-purple-600/10 to-red-600/10 rounded-xl border border-white/10 cursor-pointer hover:border-purple-500/50 transition-all"
+                  className="text-center p-4 bg-gradient-to-br from-red-600/10 to-purple-600/10 rounded-xl border border-white/10 cursor-pointer hover:border-red-500/50 transition-all"
                 >
-                  <p className="text-2xl font-bold text-purple-400">{item.amount}</p>
+                  <p className="text-2xl font-bold text-red-400">{item.amount}</p>
                   <p className="text-gray-400 text-xs mt-2">{item.impact}</p>
                 </motion.div>
               ))}
+            </div>
+            
+            {/* Red theme button in calculator */}
+            <div className="text-center mt-6">
+              <button className="bg-red-600 px-6 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg shadow-red-600/20">
+                Calculate Custom Amount
+              </button>
             </div>
           </motion.div>
         </div>
@@ -320,7 +328,7 @@ export default function SponsorPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-purple-500/30 transition-all duration-300"
+            className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-red-500/30 transition-all duration-300"
           >
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
               Ready to Make an{' '}
@@ -330,32 +338,32 @@ export default function SponsorPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
                 <div className="flex items-center gap-3 group">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-600/20 to-red-600/20 rounded-lg flex items-center justify-center group-hover:from-purple-600/30 group-hover:to-red-600/30 transition-colors">
-                    <Mail className="w-5 h-5 text-purple-500" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-red-600/20 to-purple-600/20 rounded-lg flex items-center justify-center group-hover:from-red-600/30 group-hover:to-purple-600/30 transition-colors">
+                    <Mail className="w-5 h-5 text-red-500" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Email Us</p>
-                    <a href="mailto:sponsor@devcommunitynepal.com" className="text-white hover:text-purple-400 transition">
+                    <a href="mailto:sponsor@devcommunitynepal.com" className="text-white hover:text-red-400 transition">
                       sponsor@devcommunitynepal.com
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3 group">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-600/20 to-red-600/20 rounded-lg flex items-center justify-center group-hover:from-purple-600/30 group-hover:to-red-600/30 transition-colors">
-                    <Phone className="w-5 h-5 text-purple-500" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-red-600/20 to-purple-600/20 rounded-lg flex items-center justify-center group-hover:from-red-600/30 group-hover:to-purple-600/30 transition-colors">
+                    <Phone className="w-5 h-5 text-red-500" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Call Us</p>
-                    <a href="tel:+9779800000000" className="text-white hover:text-purple-400 transition">
+                    <a href="tel:+9779800000000" className="text-white hover:text-red-400 transition">
                       +977 980-000-0000
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3 group">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-600/20 to-red-600/20 rounded-lg flex items-center justify-center group-hover:from-purple-600/30 group-hover:to-red-600/30 transition-colors">
-                    <MapPin className="w-5 h-5 text-purple-500" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-red-600/20 to-purple-600/20 rounded-lg flex items-center justify-center group-hover:from-red-600/30 group-hover:to-purple-600/30 transition-colors">
+                    <MapPin className="w-5 h-5 text-red-500" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Visit Us</p>
@@ -365,11 +373,12 @@ export default function SponsorPage() {
               </div>
               
               <div className="space-y-4">
-                <div className="bg-gradient-to-br from-purple-600/10 to-red-600/10 rounded-lg p-4 border border-white/10">
+                <div className="bg-gradient-to-br from-red-600/10 to-purple-600/10 rounded-lg p-4 border border-white/10">
                   <p className="text-gray-300 text-sm leading-relaxed">
                     Interested in creating impact? Fill out our partnership form and we'll get back to you within 24 hours to discuss how we can collaborate.
                   </p>
-                  <button className="mt-3 bg-gradient-to-r from-red-600 to-purple-600 px-4 py-2 rounded-lg text-sm font-semibold hover:from-red-700 hover:to-purple-700 transition inline-flex items-center gap-2 shadow-lg">
+                  {/* Red theme button */}
+                  <button className="mt-3 bg-red-600 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition inline-flex items-center gap-2 shadow-lg shadow-red-600/20">
                     Partnership Form <ArrowRight size={14} />
                   </button>
                 </div>
